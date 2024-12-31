@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Year 2024-2025 Animation Creator</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+
+      canvas {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      #controls {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 280px;
+        z-index: 2;
+        transition: all 0.3s ease-in-out;
+      }
+
+      #controls.minimized {
+        padding: 0.75rem;
+        width: auto;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .form-content {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .form-content.hidden {
+        display: none;
+      }
+
+      .title {
+        text-align: left;
+        margin-bottom: 1rem;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .description {
+        color: #ccc;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .input-group {
+        margin-bottom: 1rem;
+      }
+
+      .input-label {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: #fff;
+        font-size: 0.8rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.375rem;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .button {
+        padding: 0.625rem 1.25rem;
+        border: none;
+        border-radius: 0.375rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #startBtn {
+        width: 100%;
+        background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+        color: white;
+      }
+
+      #startBtn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(0, 180, 219, 0.4);
+      }
+
+      #downloadBtn {
+        background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+        color: white;
+      }
+
+      #downloadBtn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(86, 171, 47, 0.4);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .instructions {
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0.375rem;
+        font-size: 0.75rem;
+        color: #ccc;
+      }
+
+      .instructions p {
+        margin: 0 0 0.5rem 0;
+      }
+
+      .instructions ol {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .instructions li {
+        margin-bottom: 0.25rem;
+      }
+
+      .key-instruction {
+        color: #00b4db;
+        font-weight: 600;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-B8UiQYV2.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="controls">
+      <div class="form-content">
+        <div class="title">Create Animation</div>
+        <div class="description">
+          Add a name and secret message to create your personalized New Year animation!
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="name">Recipient's Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            placeholder="e.g., John" 
+            value="John"
+            maxlength="20"
+          >
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="secretMessage">Secret Message</label>
+          <input 
+            type="text" 
+            id="secretMessage" 
+            placeholder="Your message..." 
+            value="You're the best friend ever!"
+            maxlength="50"
+          >
+        </div>
+
+        <button id="startBtn" class="button">Start Animation</button>
+
+        <div class="instructions">
+          <p><span class="key-instruction">How to use:</span></p>
+          <ol>
+            <li>Enter recipient's name</li>
+            <li>Write secret message</li>
+            <li>Click "Start Animation"</li>
+            <li>Click  <span class="key-instruction">Download Animation</span>!</li>
+            <li>Watch 2024 transform to 2025!</li>
+          </ol>
+          <div style="margin-top: 0.75rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6);">
+            Created by <a href="https://x.com/aidev_isaak" target="_blank" rel="noopener noreferrer" style="color: #00b4db; text-decoration: none; font-weight: 500;">@Isaak Kamau</a>
+          </div>
+        </div>
+      </div>
+      <button id="downloadBtn" class="button hidden">Download Animation</button>
+    </div>
+
+    <script>
+      document.getElementById('startBtn').addEventListener('click', function() {
+        // Hide the form content
+        document.querySelector('.form-content').classList.add('hidden');
+        // Show the download button
+        document.getElementById('downloadBtn').classList.remove('hidden');
+        // Minimize the control panel
+        document.getElementById('controls').classList.add('minimized');
+        
+        // Start your animation here
+        // You can access the input values using:
+        const name = document.getElementById('name').value;
+        const secretMessage = document.getElementById('secretMessage').value;
+      });
+    </script>
+  </body>
+</html>
