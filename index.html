@@ -24,8 +24,9 @@
 
       #controls {
         position: fixed;
-        top: 20px;
-        left: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         padding: 1.5rem;
@@ -40,6 +41,9 @@
       #controls.minimized {
         padding: 0.75rem;
         width: auto;
+        top: 20px;
+        left: 20px;
+        transform: none;
         background: rgba(255, 255, 255, 0.05);
       }
 
@@ -201,7 +205,7 @@
             <li>Enter recipient's name</li>
             <li>Write secret message</li>
             <li>Click "Start Animation"</li>
-            <li>Click  <span class="key-instruction">Download Animation</span>!</li>
+            <li>Click <span class="key-instruction">Download Animation</span>!</li>
             <li>Watch 2024 transform to 2025!</li>
           </ol>
           <div style="margin-top: 0.75rem; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6);">
@@ -215,15 +219,9 @@
     <script type="module" src="/src/main.js"></script>
     <script>
       document.getElementById('startBtn').addEventListener('click', function() {
-        // Hide the form content
         document.querySelector('.form-content').classList.add('hidden');
-        // Show the download button
         document.getElementById('downloadBtn').classList.remove('hidden');
-        // Minimize the control panel
         document.getElementById('controls').classList.add('minimized');
-        
-        // Start your animation here
-        // You can access the input values using:
         const name = document.getElementById('name').value;
         const secretMessage = document.getElementById('secretMessage').value;
       });
