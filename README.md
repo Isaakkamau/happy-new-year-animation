@@ -1,4 +1,6 @@
 # happy-new-year-animation
+✨ Surprise your loved ones with a personalized New Year animation! 
+🎆 Customize their name + add a secret message for the perfect 2025 countdown surprise! 💝
 
 [Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/Isaakkamau/happy-new-year-animation)
 
